@@ -1,4 +1,59 @@
-00Blogtags
+Blogtags
 ==========
 
-Description goes here
+Blogtags is a plugin for the [Radiant CMS][1] that provides some useful blogging tags. OK, for now there are just two tags. But they're really useful. Honest!
+
+`previous` and `next`
+=====================
+The `previous` and `next` tags get the previous and next siblings of the current page. You can specify which attribute to use for comparison in the `by` attribute. For example,
+
+	<r:previous by="published_at"><r:link/></r:previous>
+	
+Will get the previous page according to the `published_at` date and output a link to it. 
+
+Inside the `next` and `previous` tags you can use whatever page tags you like and they'll refer to the next or previous page. If your pages have a `summary` part, you could output the summary for the next page like this:
+
+	<r:next by="published_at"><r:content part="summary"/></r:next>
+	
+Of course I have no idea _why_ you'd want to do that, but you could.
+
+Since this is the Blogtags plugin, the `previous` and `next` tags are designed to be used in a blog. Here's how I use the `previous` and `next` tags on [my site][2] to provide links to the previous and next blog entries:
+
+	<div class="article-nav">
+		<p><r:previous by="published_at"><r:link>&laquo;&nbsp;<r:title/></r:link>&nbsp;&nbsp;</r:previous><r:next
+			by="published_at"><r:link><r:title/>&nbsp;&raquo;</r:link></r:next></p>
+	</div>
+	
+This produces HTML like
+
+	<div class="article-nav">
+		<p><a href="/articles/2006/06/06/jimmy-and-ginas-wedding/">&laquo;&nbsp;Jimmy and Gina's Wedding</a>&nbsp;&nbsp;<a 	
+		    href="/articles/2006/06/22/railsconf-2006/">RailsConf 2006&nbsp;&raquo;</a></p>
+	</div>
+
+When you're viewing the first page in a sequence, the `previous` tag outputs nothing. The `next` tag outputs nothing if you're at the last page in a sequence. Also, virtual pages (like "Archive Day Index" or "Page Not Found") are excluded from the page sequence, since you probably don't want to link to them this way.
+
+
+`time_ago_in_words`
+===================
+The `time_ago_in_words` tag outputs the `published_at` date of the page in natural language. For example, if it's 4:00pm and the page was published at 1:00pm the tag
+
+	<r:time_ago_in_words/>
+	
+would output `about 3 hours`. I use it like this in my blog:
+
+	<p class="article-author">Posted by <r:author /> <r:time_ago_in_words /> ago</p>
+	
+which outputs something like:
+
+	<p class="article-author">Posted by Sean about 3 hours ago</p>
+
+Questions?
+==========
+If you have questions, I follow the [Radiant mailing lists][3], or you can contact me through [my website][2]. Good luck!
+
+
+
+[1]: http://radiantcms.org/
+[2]: http://seansantry.com/
+[3]: http://radiantcms.org/mailing-list/

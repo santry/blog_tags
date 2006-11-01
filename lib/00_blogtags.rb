@@ -3,13 +3,14 @@ Behavior::Base.define_tags do
   tag "next" do |tag|
     current = tag.locals.page
     by = tag.attr['by'] || 'title'
-    siblings = current.self_and_siblings.sort_by { |page| page.attributes[by] }
-    index = siblings.index(current)
-    next_page = siblings.fetch(index += 1, siblings[0])
-    while !(next_page.nil?) and next_page.behavior_id =~ /Archive/
-      next_page = siblings.fetch(index += 1, siblings[0]) 
-    end
     
+    # get the page's siblings, exclude any that have nil 
+    # for the sorting attribute, exclude virtual pages,
+    # and sort by the chosen attribute
+    siblings = current.self_and_siblings.delete_if { |s| s.send(by).nil? || s.virtual? }.sort_by { |page| page.attributes[by] }
+    index = siblings.index(current)
+    next_page = siblings[index + 1]
+  
     if next_page
       tag.locals.page = next_page
       tag.expand
@@ -19,12 +20,12 @@ Behavior::Base.define_tags do
   tag "previous" do |tag|
     current = tag.locals.page
     by = tag.attr['by'] || 'title'
-    siblings = current.self_and_siblings.sort_by { |page| page.attributes[by] }
+    siblings = current.self_and_siblings.delete_if { |s| s.send(by).nil? || s.virtual? }.sort_by { |page| page.attributes[by] }
     index = siblings.index(current)
-    previous = siblings.fetch(index -= 1, nil)    
-    while !(previous.nil?) and previous.behavior_id =~ /Archive/
-      previous = siblings.fetch(index -= 1, nil)
-    end
+
+    # we don't want to wrap around to the last article    
+    if index > 0 then previous = siblings[index - 1] 
+    else previous = nil; end
     
     if previous
       tag.locals.page = previous
