@@ -1,1 +1,1 @@
-require '00_blogtags'
+require 'blogtags'
