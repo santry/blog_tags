@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :00_blogtags do
+# task :BlogTags do
 #   # Task goes here
 # end

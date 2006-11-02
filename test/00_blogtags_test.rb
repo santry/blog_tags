@@ -1,6 +1,6 @@
 require 'test/unit'
 
-class 00BlogtagsTest < Test::Unit::TestCase
+class BlogTagsTest < Test::Unit::TestCase
   # Replace this with your real tests.
   def test_this_plugin
     flunk

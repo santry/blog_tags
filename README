@@ -1,7 +1,7 @@
 
-Blogtags
+BlogTags
 ==========
-Blogtags is a plugin for the [Radiant CMS][1] that provides some useful blogging tags. OK, for now there are just three tags. But they're really useful. Honest!
+BlogTags is a plugin for the [Radiant CMS][1] that provides some useful blogging tags. OK, for now there are just three tags. But they're really useful. Honest!
 
 The latest version is available at <http://seansantry.com/dev/blogtags/> and from my subversion repository at <http://seansantry.com/svn/radiant/plugins/blogtags/trunk>.
 
@@ -18,11 +18,11 @@ will get the previous page according to the `published_at` date and output a lin
 
 Inside the `next` and `previous` tags you can use whatever page tags you like and they'll refer to the next or previous page. If your pages have a `summary` part, you could output the summary for the next page like this:
 
-	<r:next by="published_at"><r:content part="summary"/></r:next>
+	<r:next><r:content part="summary"/></r:next>
 	
 Of course I have no idea _why_ you'd want to do that, but you could.
 
-Since this is the Blogtags plugin, the `previous` and `next` tags are designed to be used in a blog. Here's how I use the `previous` and `next` tags on [my site][2] to provide links to the previous and next blog entries:
+Since this is the BlogTags plugin, the `previous` and `next` tags are designed to be used in a blog. Here's how I use the `previous` and `next` tags on [my site][2] to provide links to the previous and next blog entries:
 
 	<div class="article-nav">
 		<p><r:previous><r:link>&laquo;&nbsp;<r:title/></r:link>&nbsp;&nbsp;</r:previous>
