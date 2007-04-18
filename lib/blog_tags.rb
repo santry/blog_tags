@@ -1,4 +1,5 @@
-Behavior::Base.define_tags do
+module BlogTags
+  include Radiant::Taggable
   
   tag "next" do |tag|
     current = tag.locals.page

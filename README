@@ -1,9 +1,9 @@
 
 BlogTags
 ==========
-BlogTags is a plugin for the [Radiant CMS][1] that provides some useful blogging tags. OK, for now there are just three tags. But they're really useful. Honest!
+BlogTags is an extension for the [Radiant CMS][1] that provides some useful blogging tags. OK, for now there are just three tags. But they're really useful. Honest!
 
-The latest version is available at <http://seansantry.com/projects/blogtags/> and from my subversion repository at <http://seansantry.com/svn/radiant/plugins/blogtags/trunk>.
+The latest version is available at <http://seansantry.com/projects/blogtags/> and from my subversion repository at <http://seansantry.com/svn/radiant/extensions/blogtags/trunk>.
 
 
 `previous` and `next`
