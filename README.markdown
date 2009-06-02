@@ -2,9 +2,9 @@ BlogTags
 ==========
 BlogTags is an extension for the [Radiant CMS][1] that provides some useful blogging tags. OK, for now there are just three tags. But they're really useful. Honest!
 
-The latest version is available on [GitHub][6]. When cloning, ensure your clone is named `blog_tags`:
+The latest version is available on [GitHub][6].
 
-        git clone git://github.com/santry/blogtags.git vendor/extensions/blog_tags
+        git clone git://github.com/santry/blog_tags.git
 
 
 `previous` and `next`
@@ -71,4 +71,4 @@ Thanks to [John Long][4] for creating Radiant and for providing a starting point
 [3]: http://radiantcms.org/mailing-list/
 [4]: http://wiseheartdesign.com/
 [5]: http://seancribbs.com/
-[6]: http://github.com/santry/blogtags/
+[6]: http://github.com/santry/blog_tags/
